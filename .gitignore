@@ -1,4 +1,19 @@
 # Compiled class file
+
+HELP.*
+.project*
+.classpath*
+.mvn*
+mvn*
+.metadata*
+.settings/
+.settings*
+
+
+target/
+application.properties
+
+
 *.class
 
 # Log file
