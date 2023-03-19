@@ -1,7 +1,15 @@
 package com.goutam.backend.repository;
 
-import com.goutam.backend.model.StockUser;	
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-public interface StockUserRepository extends JpaRepository<StockUser,Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.goutam.backend.model.StockMst;
+import com.goutam.backend.model.StockUser;
+
+public interface StockUserRepository extends JpaRepository<StockUser,Integer> {
+	
+	
+
 }

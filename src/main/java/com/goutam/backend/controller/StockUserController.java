@@ -30,18 +30,18 @@ public class StockUserController {
     } 
     
     @GetMapping("/user/{id}")
-    StockUser getUserById(@PathVariable Long id) {
+    StockUser getUserById(@PathVariable Integer id) {
         return stockUserService.getUserById(id);
     }
 
     @PutMapping("/user/{id}")
-    StockUser updateUser(@RequestBody StockUser newUser, @PathVariable Long id) {
+    StockUser updateUser(@RequestBody StockUser newUser, @PathVariable Integer id) {
         return stockUserService.updateUserById(id,newUser);
         
     }
 
     @DeleteMapping("/user/{id}")
-    String deleteUser(@PathVariable Long id){
+    String deleteUser(@PathVariable Integer id){
         return stockUserService.deleteUserById(id);
     }
 

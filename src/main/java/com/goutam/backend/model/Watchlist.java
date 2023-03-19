@@ -1,14 +1,9 @@
 package com.goutam.backend.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity(name="watchlist")
@@ -22,6 +17,36 @@ public class Watchlist {
     private Integer num_user_id;
     
     private Integer num_scrip_id;
+
+	public Integer getNum_watchlist_id() {
+		return num_watchlist_id;
+	}
+
+	public void setNum_watchlist_id(Integer num_watchlist_id) {
+		this.num_watchlist_id = num_watchlist_id;
+	}
+
+	public Integer getNum_user_id() {
+		return num_user_id;
+	}
+
+	public void setNum_user_id(Integer num_user_id) {
+		this.num_user_id = num_user_id;
+	}
+
+	public Integer getNum_scrip_id() {
+		return num_scrip_id;
+	}
+
+	public void setNum_scrip_id(Integer num_scrip_id) {
+		this.num_scrip_id = num_scrip_id;
+	}
+
+	
+    
+    
+    
+    
     
     
     
