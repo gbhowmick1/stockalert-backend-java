@@ -1,56 +1,30 @@
-//package com.goutam.backend.controller;
-//
-//import com.goutam.backend.exception.UserNotFoundException;
-//import com.goutam.backend.model.Users;
-//import com.goutam.backend.repository.UserRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//@RestController
-//@CrossOrigin("http://localhost:3000")
-//public class StockMstController {
-//
-//    @Autowired
-//    private UserRepository userRepository;
-//
-//    @PostMapping("/user")
-//    Users newUser(@RequestBody Users newUser) {
-//        return userRepository.save(newUser);
-//    }
-//
-//    @GetMapping("/users")
-//    List<Users> getAllUsers() {
-//        return userRepository.findAll();
-//    }
-//
-//    @GetMapping("/user/{id}")
-//    Users getUserById(@PathVariable Long id) {
-//        return userRepository.findById(id)
-//                .orElseThrow(() -> new UserNotFoundException(id));
-//    }
-//
-//    @PutMapping("/user/{id}")
-//    Users updateUser(@RequestBody Users newUser, @PathVariable Long id) {
-//        return userRepository.findById(id)
-//                .map(user -> {
-//                    user.setUsername(newUser.getUsername());
-//                    user.setName(newUser.getName());
-//                    user.setEmail(newUser.getEmail());
-//                    return userRepository.save(user);
-//                }).orElseThrow(() -> new UserNotFoundException(id));
-//    }
-//
-//    @DeleteMapping("/user/{id}")
-//    String deleteUser(@PathVariable Long id){
-//        if(!userRepository.existsById(id)){
-//            throw new UserNotFoundException(id);
-//        }
-//        userRepository.deleteById(id);
-//        return  "User with id "+id+" has been deleted success.";
-//    }
-//
-//
-//
-//}
+package com.goutam.backend.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.goutam.backend.model.StockMst;
+import com.goutam.backend.service.StockMstService;
+
+@RestController
+@CrossOrigin("http://localhost:3000")
+@RequestMapping("/stock")
+public class StockMstController {
+
+	@Autowired
+	StockMstService stockMstService;
+	
+	
+	@GetMapping("/search")
+	public List<StockMst> searchByStockName(@RequestParam String name){
+		return  stockMstService.searchByStockName(name);
+	}
+
+
+}

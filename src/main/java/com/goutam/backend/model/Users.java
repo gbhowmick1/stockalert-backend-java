@@ -1,28 +1,33 @@
 package com.goutam.backend.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Users {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
     private String username;
     private String name;
     private String email;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public Integer getId() {
+		return id;
+	}
 
-    public String getUsername() {
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
         return username;
     }
 
