@@ -29,7 +29,7 @@ public class StockUserServiceImpl implements StockUserService {
 
 
 	@Override
-	public StockUser getUserById(Long id) {
+	public StockUser getUserById(Integer id) {
 
         Optional<StockUser> userOpt = stockUserRepository.findById(id);
         if(userOpt.isPresent())
@@ -44,7 +44,7 @@ public class StockUserServiceImpl implements StockUserService {
 
 
 	@Override
-	public StockUser updateUserById(Long id, StockUser newUser) {
+	public StockUser updateUserById(Integer id, StockUser newUser) {
 		
 		Optional<StockUser> userDetailOpt = stockUserRepository.findById(id);
         if(userDetailOpt.isPresent()){
@@ -65,7 +65,7 @@ public class StockUserServiceImpl implements StockUserService {
 
 
 	@Override
-	public String deleteUserById(Long id) {
+	public String deleteUserById(Integer id) {
 		
         Optional<StockUser> userOpt = stockUserRepository.findById(id);
         if(userOpt.isPresent()) {

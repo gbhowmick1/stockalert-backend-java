@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
 
-@Entity
+@Entity(name="stock_user")
 public class StockUser {
 
     @Id
@@ -22,19 +22,24 @@ public class StockUser {
     private String email;
     private String password;
 
-    @ManyToMany 
-    @JoinTable(
-    		name="watchlist",
-    		joinColumns = { 
-    				@JoinColumn(name= "num_user_id") 
-    		},
-    		inverseJoinColumns = {
-    				@JoinColumn(name="num_scrip_id")
-    		}
-    		)
-    private List<StockMst> watchlist;
+//    @ManyToMany 
+//    @JoinTable(
+//    		name="watchlist",
+//    		joinColumns = { 
+//    				@JoinColumn(name= "num_user_id") 
+//    		} ,
+//			inverseJoinColumns = {
+//					@JoinColumn(name="num_scrip_id")
+//			}
+//    		) 
+//    private List<StockMst> watchlist;
 
-    public Integer getId() {
+
+
+
+   
+
+	public Integer getId() {
 		return id;
 	}
 
@@ -42,8 +47,7 @@ public class StockUser {
 		this.id = id;
 	}
 
-
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -65,6 +69,23 @@ public class StockUser {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public StockUser(Integer id, String name, String email, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+	}
+
+	public StockUser() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "StockUser [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
     
     

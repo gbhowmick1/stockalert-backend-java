@@ -8,5 +8,5 @@ public interface StockMstService {
 
 	List<StockMst> searchByStockName(String name);
 
-	
+	List<StockMst> getWatchlistByUserId(Integer uid);
 }

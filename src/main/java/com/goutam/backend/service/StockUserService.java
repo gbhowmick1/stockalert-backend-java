@@ -7,15 +7,14 @@ public interface StockUserService {
 
 	
 	
-	
 	List<StockUser> getAllUser();
 
 	StockUser saveUser(StockUser newUser);
 
-	StockUser getUserById(Long id);
+	StockUser getUserById(Integer id);
 
-	StockUser updateUserById(Long id, StockUser newUser);
+	StockUser updateUserById(Integer id, StockUser newUser);
 
-	String deleteUserById(Long id);
+	String deleteUserById(Integer id);
 	
 }
