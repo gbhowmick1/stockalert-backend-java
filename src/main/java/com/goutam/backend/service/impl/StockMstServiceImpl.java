@@ -20,11 +20,4 @@ public class StockMstServiceImpl implements StockMstService {
 	public List<StockMst> searchByStockName(String name) {
 		return stockMstRepository.serachByStockName(name);
 	}
-
-
-	@Override
-	public List<StockMst> getWatchlistByUserId(Integer uid) {
-		return stockMstRepository.getWatchlistByUserId(uid);
-	}
-
 }

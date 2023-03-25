@@ -6,8 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.goutam.backend.dto.WatchlistDto;
+import com.goutam.backend.model.StockMst;
 import com.goutam.backend.model.StockUser;
 import com.goutam.backend.model.Watchlist;
+import com.goutam.backend.repository.StockMstRepository;
 import com.goutam.backend.repository.StockUserRepository;
 import com.goutam.backend.repository.WatchlistRepository;
 import com.goutam.backend.service.StockUserService;
@@ -35,6 +38,12 @@ public class WatchlistServiceImpl implements WatchlistService {
         else {
         	throw new RuntimeException("Stock not found...");
         }
+	}
+
+
+	@Override
+	public List<StockMst> getWatchlistByUserId(Integer uid) {
+		return watchlistRepository.getWatchlistByUserId(uid);
 	}
 	
 	

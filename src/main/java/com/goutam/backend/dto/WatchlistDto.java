@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.goutam.backend.model.Watchlist;
 
-public class watchlistDto {
+public class WatchlistDto {
 	
 
 	private Integer num_scrip_id;

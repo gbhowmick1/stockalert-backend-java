@@ -1,16 +1,20 @@
 package com.goutam.backend.controller;
 
-import com.goutam.backend.exception.UserNotFoundException;
-import com.goutam.backend.model.StockUser;
-import com.goutam.backend.model.Watchlist;
-import com.goutam.backend.repository.UserRepository;
-import com.goutam.backend.service.StockUserService;
-import com.goutam.backend.service.WatchlistService;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import com.goutam.backend.model.StockMst;
+import com.goutam.backend.model.Watchlist;
+import com.goutam.backend.service.WatchlistService;
 
 @RestController()
 @CrossOrigin("http://localhost:3000")
@@ -27,7 +31,7 @@ public class WatchlistController {
   }
     	
     @GetMapping("/getbyuid/{uid}")
-    public List<Watchlist> getWatchlistByUserId(@PathVariable Integer uid) {
+    public List<StockMst> getWatchlistByUserId(@PathVariable Integer uid) {
         return watchlistService.getWatchlistByUserId(uid);
     } 
     
