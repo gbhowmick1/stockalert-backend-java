@@ -12,6 +12,7 @@ mvn*
 
 target/
 application.properties
+application*.properties
 
 
 *.class

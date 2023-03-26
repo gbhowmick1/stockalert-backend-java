@@ -17,7 +17,7 @@ import com.goutam.backend.model.Watchlist;
 import com.goutam.backend.service.WatchlistService;
 
 @RestController()
-@CrossOrigin("http://localhost:3000")
+//@CrossOrigin("http://localhost:3000")
 @RequestMapping("/watchlist")
 public class WatchlistController {
 
