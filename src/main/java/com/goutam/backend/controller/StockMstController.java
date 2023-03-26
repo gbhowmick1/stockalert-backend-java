@@ -28,8 +28,5 @@ public class StockMstController {
 	}
 
 
-	@GetMapping("/watchlist/{uid}")
-	public List<StockMst> searchByuid(@PathVariable Integer uid){
-		return  stockMstService.getWatchlistByUserId(uid);
-	}
+
 }

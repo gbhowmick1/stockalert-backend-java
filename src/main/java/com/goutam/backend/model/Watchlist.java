@@ -1,5 +1,7 @@
 package com.goutam.backend.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,17 @@ public class Watchlist {
     private Integer num_user_id;
     
     private Integer num_scrip_id;
+    
+    private Timestamp timestamp;
+
+    
+	public Timestamp getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Timestamp timestamp) {
+		this.timestamp = timestamp;
+	}
 
 	public Integer getNum_watchlist_id() {
 		return num_watchlist_id;
