@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  stockalert-backend-java:
+        restart: always
+        image: stockalert-backend-java:latest
+        container_name: "stockalert"
+        ports:
+            - "7000:7000"
+        volumes:
+            - stockalertvol:/opt/app/logs
+ 
+volumes:
+    stockalertvol:
