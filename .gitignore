@@ -3,7 +3,7 @@
 HELP.*
 .project*
 .classpath*
-.mvn*
+#.mvn*
 mvn*
 .metadata*
 .settings/
