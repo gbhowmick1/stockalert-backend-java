@@ -6,3 +6,6 @@ https://www.bseindia.com/corporates/List_Scrips.html
 NSE-
 https://www1.nseindia.com/corporates/content/securities_info.htm
 
+IMPORTED DATA USING DBEAVER IMPORT WIZARD
+before importing data 
+1. from excel delete redundant column and rename column header as table column name in excel.
