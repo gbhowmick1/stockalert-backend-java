@@ -11,7 +11,7 @@ public interface WatchlistService {
 
 	Watchlist addStockToWatchlist(Watchlist newStock);
 
-	String deleteStockFromWatchlist(Integer watchlistId);
+	String deleteStockFromWatchlist(Integer scripId, Integer uid);
 
 	List<StockMst> getWatchlistByUserId(Integer uid);
 	

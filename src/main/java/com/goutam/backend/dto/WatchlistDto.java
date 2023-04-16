@@ -13,6 +13,7 @@ public class WatchlistDto {
     private String str_scrip_name;
     private String str_company_name;
     private String str_exchange;
+    private String num_scrip_code;
     
 	
 

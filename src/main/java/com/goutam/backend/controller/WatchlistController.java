@@ -35,9 +35,9 @@ public class WatchlistController {
         return watchlistService.getWatchlistByUserId(uid);
     } 
     
-    @DeleteMapping("/deletebywid/{wid}")
-    String deleteStockFromWatchlist(@PathVariable Integer wid){
-        return watchlistService.deleteStockFromWatchlist(wid);
+    @DeleteMapping("/deletebyscripanduid/{scripId}/{uid}")
+    String deleteStockFromWatchlist(@PathVariable Integer scripId,@PathVariable Integer uid){
+        return watchlistService.deleteStockFromWatchlist(scripId,uid);
     }
 
 

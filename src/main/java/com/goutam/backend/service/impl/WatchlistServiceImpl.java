@@ -24,16 +24,19 @@ public class WatchlistServiceImpl implements WatchlistService {
 
 	@Override
 	public Watchlist addStockToWatchlist(Watchlist newStock) {
+		List<Watchlist> stock = watchlistRepository.getWatchlistByScripId(newStock.getNum_scrip_id());
+		if(stock.size()>0)	return new Watchlist();
 		return watchlistRepository.save(newStock);
 	}
 
 
 	@Override
-	public String deleteStockFromWatchlist(Integer watchlistId) {
-		Optional<Watchlist> watchlistOpt = watchlistRepository.findById(watchlistId);
-        if(watchlistOpt.isPresent()) {
-        	watchlistRepository.deleteById(watchlistId);
-        	 return  "Stock with id "+watchlistId+" has been deleted success.";
+	public String deleteStockFromWatchlist(Integer scripId, Integer userId) {
+		Optional<Watchlist> watchlistOpt = watchlistRepository.getStockByScripAndUserId(scripId, userId);
+		System.out.println("founddddddddddd"+watchlistOpt.get().getNum_watchlist_id());
+		if(watchlistOpt.isPresent()) {
+        	watchlistRepository.deleteById(watchlistOpt.get().getNum_watchlist_id());
+        	 return  "Stock with id "+watchlistOpt.get().getNum_watchlist_id()+" has been deleted Successfully.";
         }
         else {
         	throw new RuntimeException("Stock not found...");
