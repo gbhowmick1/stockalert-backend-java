@@ -13,10 +13,12 @@ import com.goutam.backend.service.StockUserService;
 @Service
 public class StockUserServiceImpl implements StockUserService {
 
-	@Autowired
-	private StockUserRepository stockUserRepository;
-	
-	
+	private final StockUserRepository stockUserRepository;
+
+	public StockUserServiceImpl(StockUserRepository stockUserRepository) {
+		this.stockUserRepository = stockUserRepository;
+	}
+
 	public List<StockUser> getAllUser(){
 		return stockUserRepository.findAll();
 	}

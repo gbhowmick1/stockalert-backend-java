@@ -16,8 +16,11 @@ import java.util.List;
 public class StockUserController {
 
     
-    @Autowired
-    private StockUserService stockUserService;
+    private final StockUserService stockUserService;
+
+    public StockUserController(StockUserService stockUserService) {
+        this.stockUserService = stockUserService;
+    }
 
     @PostMapping("/user")
     StockUser newUser(@RequestBody StockUser newUser) {

@@ -13,11 +13,13 @@ import com.goutam.backend.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	
-	public List<Users> getAllUser(){
+	private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public List<Users> getAllUser(){
 		return userRepository.findAll();
 	}
 

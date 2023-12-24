@@ -2,11 +2,9 @@ package com.goutam.backend.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,13 +17,17 @@ import com.goutam.backend.service.StockMstService;
 public class StockMstController {
 
 
-	
-	@Autowired
-	StockMstService stockMstService;
-	
-	
+	private static final Logger logger = LoggerFactory.getLogger(StockMstController.class);
+
+	private final StockMstService stockMstService;
+
+	public StockMstController(StockMstService stockMstService) {
+		this.stockMstService = stockMstService;
+	}
+
 	@GetMapping("/search")
 	public List<StockMst> searchByStockName(@RequestParam String name){
+		logger.info("/search called with name="+name);
 		return  stockMstService.searchByStockName(name);
 	}
 

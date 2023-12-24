@@ -12,10 +12,12 @@ import com.goutam.backend.service.StockMstService;
 @Service
 public class StockMstServiceImpl implements StockMstService {
 	
-	@Autowired
-	StockMstRepository stockMstRepository;
+	private final StockMstRepository stockMstRepository;
 
-	
+	public StockMstServiceImpl(StockMstRepository stockMstRepository) {
+		this.stockMstRepository = stockMstRepository;
+	}
+
 	@Override
 	public List<StockMst> searchByStockName(String name) {
 		return stockMstRepository.serachByStockName(name);

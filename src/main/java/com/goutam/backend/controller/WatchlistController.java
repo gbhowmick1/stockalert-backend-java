@@ -22,8 +22,11 @@ import com.goutam.backend.service.WatchlistService;
 public class WatchlistController {
 
    
-    @Autowired
-    private WatchlistService watchlistService;
+    private final WatchlistService watchlistService;
+
+    public WatchlistController(WatchlistService watchlistService) {
+        this.watchlistService = watchlistService;
+    }
 
     @PostMapping("/add")
     Watchlist addStockToWatchlist(@RequestBody Watchlist newStock) {

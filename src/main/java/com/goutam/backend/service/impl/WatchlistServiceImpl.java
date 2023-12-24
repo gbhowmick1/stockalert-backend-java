@@ -19,8 +19,11 @@ import com.goutam.backend.service.WatchlistService;
 @Service
 public class WatchlistServiceImpl implements WatchlistService {
 
-	@Autowired
-	private WatchlistRepository watchlistRepository;
+	private final WatchlistRepository watchlistRepository;
+
+	public WatchlistServiceImpl(WatchlistRepository watchlistRepository) {
+		this.watchlistRepository = watchlistRepository;
+	}
 
 	@Override
 	public Watchlist addStockToWatchlist(Watchlist newStock) {
