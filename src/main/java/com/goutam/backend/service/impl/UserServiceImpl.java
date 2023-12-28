@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.goutam.backend.model.Users;
@@ -78,15 +79,15 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public String deleteUserById(Long id) {
+    public ResponseEntity<String> deleteUserById(Long id) {
 
         Optional<Users> userOpt = userRepository.findById(id);
         if(userOpt.isPresent()) {
             userRepository.deleteById(id);
-            return  "User with id "+id+" has been deleted success.";
+            return ResponseEntity.ok("User with id "+id+" has been successfully deleted.");
         }
         else {
-            throw new RuntimeException("user not found to delete ...");
+            throw new UserNotFoundException(id);
         }
     }
 

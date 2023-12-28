@@ -2,6 +2,8 @@ package com.goutam.backend.service;
 
 import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.model.Users;
+import org.springframework.http.ResponseEntity;
+
 import java.util.List;
 
 public interface UserService {
@@ -17,6 +19,6 @@ public interface UserService {
 
 	Users updateUserById(Long id, Users newUser);
 
-	String deleteUserById(Long id);
+	ResponseEntity<String> deleteUserById(Long id);
 	
 }
