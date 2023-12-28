@@ -1,5 +1,6 @@
 package com.goutam.backend.service;
 
+import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.model.Users;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface UserService {
 	
 	List<Users> getAllUser();
 
-	Users saveUser(Users newUser);
+	Users saveUser(UserRequest newUser);
 
 	Users getUserById(Long id);
 

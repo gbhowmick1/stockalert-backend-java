@@ -3,6 +3,8 @@ package com.goutam.backend.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.goutam.backend.dto.UserRequest;
+import com.goutam.backend.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,45 +15,51 @@ import com.goutam.backend.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public List<Users> getAllUser(){
-		return userRepository.findAll();
-	}
+        return userRepository.findAll();
+    }
 
 
-	@Override
-	public Users saveUser(Users newUser) {
-		return userRepository.save(newUser);
-	}
+    @Override
+    public Users saveUser(UserRequest userRequest) {
+
+        Users user = Users.build(
+                0L,userRequest.getName(), userRequest.getName(), userRequest.getEmail(),
+                userRequest.getMobile(),userRequest.getAge(),userRequest.getNationality()
+        );
+
+        return userRepository.save(user);
+    }
 
 
-	@Override
-	public Users getUserById(Long id) {
+    @Override
+    public Users getUserById(Long id) {
 
         Optional<Users> userOpt = userRepository.findById(id);
         if(userOpt.isPresent())
             return userOpt.get();
         else
-            throw new RuntimeException("user not found...");
+            throw new UserNotFoundException(id);
         
         
 //      return userRepository.findById(id)
 //      .orElseThrow(() -> new UserNotFoundException(id));   
-	}
+    }
 
 
-	@Override
-	public Users updateUserById(Long id, Users newUser) {
-		
-		Optional<Users> userDetailOpt = userRepository.findById(id);
+    @Override
+    public Users updateUserById(Long id, Users newUser) {
+
+        Optional<Users> userDetailOpt = userRepository.findById(id);
         if(userDetailOpt.isPresent()){
-        	Users userDetail = userDetailOpt.get();
-        	
+            Users userDetail = userDetailOpt.get();
+
             if(newUser.getUsername() != null || newUser.getUsername().isEmpty())
                 userDetail.setUsername(newUser.getUsername());
             
@@ -66,20 +74,20 @@ public class UserServiceImpl implements UserService {
         }else{
             throw new RuntimeException("user not found.");
         }
-	}
+    }
 
 
-	@Override
-	public String deleteUserById(Long id) {
-		
+    @Override
+    public String deleteUserById(Long id) {
+
         Optional<Users> userOpt = userRepository.findById(id);
         if(userOpt.isPresent()) {
-        	userRepository.deleteById(id);
-        	 return  "User with id "+id+" has been deleted success.";
+            userRepository.deleteById(id);
+            return  "User with id "+id+" has been deleted success.";
         }
         else {
-        	throw new RuntimeException("user not found...");
+            throw new RuntimeException("user not found to delete ...");
         }
     }
-	
+
 }

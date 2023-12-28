@@ -1,6 +1,7 @@
 package com.goutam.backend.exception;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,8 +21,8 @@ public class GlobalControllerAdvice {
 	// WHATEVER EXCEPTION COMES IN IT WILL HANDLE  
 	
     @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String,String> globalExceptionHandler(RuntimeException exception){
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public Map<String,String> globalRuntimeExceptionHandler(RuntimeException exception){
 
         Map<String,String> errorMap=new HashMap<>();
         errorMap.put("errorMessage",exception.getMessage());
@@ -31,32 +32,67 @@ public class GlobalControllerAdvice {
     
     // THIS WILL CATCH ALL OTHER EXCEPTION IN YOUR APPLICATION
     
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Map<String,String> globalExceptionHandler(Exception exception){
+//    @ExceptionHandler
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public Map<String,String> globalExceptionHandler(Exception exception){
+//
+//        Map<String,String> errorMap=new HashMap<>();
+//        errorMap.put("errorMessage",exception.getMessage());
+//        return errorMap;
+//    }
+    
 
-        Map<String,String> errorMap=new HashMap<>();
-        errorMap.put("errorMessage",exception.getMessage());
-        return errorMap;
-    }
-    
-    
-    
-  //------------------------REDUNDANT START---------------------------------------
 
-    @ExceptionHandler
+
+//------------------------REDUNDANT START---------------------------------------
+
+    @ExceptionHandler(UserNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public Map<String,String> exceptionHandler(UserNotFoundException exception){
-
         Map<String,String> errorMap=new HashMap<>();
         errorMap.put("errorMessage",exception.getMessage());
 
         return errorMap;
 
+    }
+
+    @ExceptionHandler(NoUserFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Map<String,String> nouserFoundException(NoUserFoundException exception){
+        Map<String,String> errorMap = new HashMap<>();
+        errorMap.put("errorMessage",exception.getMessage());
+        return errorMap;
     }
 //------------------------REDUNDANT END--------------------------------------- 
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String,String> invalidArgument(MethodArgumentNotValidException exception){
+        Map<String,String> errorMap = new HashMap<>();
+        exception
+                .getBindingResult()
+                .getFieldErrors()
+                .forEach(error -> errorMap.put(error.getField(),error.getDefaultMessage()));
+
+        return errorMap;
+    }
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 

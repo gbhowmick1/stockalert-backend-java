@@ -1,53 +1,33 @@
 package com.goutam.backend.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(staticName = "build")
 @Entity
+@Table(name="users")
 public class Users {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
+
     private String username;
     private String name;
     private String email;
+    private  String mobile;
+    private Integer age;
+    private String nationality;
 
-
-    public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

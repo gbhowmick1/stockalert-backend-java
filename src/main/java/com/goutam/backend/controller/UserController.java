@@ -1,13 +1,15 @@
 package com.goutam.backend.controller;
 
+import com.goutam.backend.dto.UserRequest;
+import com.goutam.backend.exception.NoUserFoundException;
 import com.goutam.backend.exception.UserNotFoundException;
 import com.goutam.backend.model.Users;
-import com.goutam.backend.repository.UserRepository;
 import com.goutam.backend.service.UserService;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,19 +23,35 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/user")
-    Users newUser(@RequestBody Users newUser) {
-    	return userService.saveUser(newUser); 
+    @PostMapping("/save-user")
+    ResponseEntity<Users> newUser(@RequestBody  @Valid UserRequest userRequest) {
+
+        Users savedUser = userService.saveUser(userRequest);
+        if(savedUser!=null){
+            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+        } else{
+
+            throw new RuntimeException("User  Creation Error");
+        }
+
   }
     	
     @GetMapping("/users")
     public List<Users> getAllUsers() {
-        return userService.getAllUser();
+
+
+        List<Users> allUser = userService.getAllUser();
+        if(allUser !=null){
+            return allUser;
+        } else {
+            throw new NoUserFoundException();
+        }
     } 
     
     @GetMapping("/user/{id}")
     Users getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+        return  userService.getUserById(id);
+
     }
 
     @PutMapping("/user/{id}")
