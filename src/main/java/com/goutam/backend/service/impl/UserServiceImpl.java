@@ -5,11 +5,10 @@ import java.util.Optional;
 
 import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.exception.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.goutam.backend.model.Users;
+import com.goutam.backend.domain.Users;
 import com.goutam.backend.repository.UserRepository;
 import com.goutam.backend.service.UserService;
 

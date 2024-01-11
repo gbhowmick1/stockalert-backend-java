@@ -1,11 +1,8 @@
 package com.goutam.backend.controller;
 
-import com.goutam.backend.exception.UserNotFoundException;
-import com.goutam.backend.model.StockUser;
-import com.goutam.backend.repository.UserRepository;
+import com.goutam.backend.domain.StockUser;
 import com.goutam.backend.service.StockUserService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

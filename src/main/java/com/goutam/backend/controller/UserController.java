@@ -2,7 +2,7 @@ package com.goutam.backend.controller;
 
 import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.exception.DataNotFoundException;
-import com.goutam.backend.model.Users;
+import com.goutam.backend.domain.Users;
 import com.goutam.backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,11 +1,5 @@
 package com.goutam.backend.dto;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.Query;
-
-import com.goutam.backend.model.Watchlist;
-
 public class WatchlistDto {
 	
 

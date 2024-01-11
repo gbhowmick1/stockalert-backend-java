@@ -1,6 +1,6 @@
 package com.goutam.backend.service;
 
-import com.goutam.backend.model.StockUser;
+import com.goutam.backend.domain.StockUser;
 import java.util.List;
 
 public interface StockUserService {

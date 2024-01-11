@@ -1,15 +1,10 @@
-package com.goutam.backend.model;
-
-import java.util.List;
+package com.goutam.backend.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.JoinColumn;
 
 @Entity(name="stock_user")
 public class StockUser {

@@ -1,7 +1,7 @@
 package com.goutam.backend.service;
 
 import com.goutam.backend.dto.UserRequest;
-import com.goutam.backend.model.Users;
+import com.goutam.backend.domain.Users;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
