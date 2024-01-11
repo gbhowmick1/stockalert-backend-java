@@ -27,7 +27,7 @@ public class UserController {
 
         Users savedUser = userService.saveUser(userRequest);
         if(savedUser!=null){
-            return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+            return new ResponseEntity<Users>(savedUser, HttpStatus.CREATED);
         } else{
 
             throw new RuntimeException("User  Creation Error");
