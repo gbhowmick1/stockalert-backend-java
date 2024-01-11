@@ -1,8 +1,7 @@
 package com.goutam.backend.controller;
 
 import com.goutam.backend.dto.UserRequest;
-import com.goutam.backend.exception.NoUserFoundException;
-import com.goutam.backend.exception.UserNotFoundException;
+import com.goutam.backend.exception.DataNotFoundException;
 import com.goutam.backend.model.Users;
 import com.goutam.backend.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -44,7 +43,7 @@ public class UserController {
         if(allUser !=null){
             return allUser;
         } else {
-            throw new NoUserFoundException();
+            throw new DataNotFoundException();
         }
     } 
     

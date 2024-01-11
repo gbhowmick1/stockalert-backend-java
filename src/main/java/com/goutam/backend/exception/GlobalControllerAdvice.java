@@ -2,9 +2,7 @@ package com.goutam.backend.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -16,8 +14,7 @@ import java.util.Map;
 public class GlobalControllerAdvice {
 
 	
-	
-	// FROM SERVICE LAYER THROW RuntimeException WITH CUSTOM MESSAGE 
+	// FROM SERVICE LAYER THROW RuntimeException WITH CUSTOM MESSAGE
 	// WHATEVER EXCEPTION COMES IN IT WILL HANDLE  
 	
     @ExceptionHandler
@@ -28,42 +25,6 @@ public class GlobalControllerAdvice {
         errorMap.put("errorMessage",exception.getMessage());
         return errorMap;
     }
-    
-    
-    // THIS WILL CATCH ALL OTHER EXCEPTION IN YOUR APPLICATION
-    
-//    @ExceptionHandler
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Map<String,String> globalExceptionHandler(Exception exception){
-//
-//        Map<String,String> errorMap=new HashMap<>();
-//        errorMap.put("errorMessage",exception.getMessage());
-//        return errorMap;
-//    }
-    
-
-
-
-//------------------------REDUNDANT START---------------------------------------
-
-    @ExceptionHandler(UserNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Map<String,String> exceptionHandler(UserNotFoundException exception){
-        Map<String,String> errorMap=new HashMap<>();
-        errorMap.put("errorMessage",exception.getMessage());
-
-        return errorMap;
-
-    }
-
-    @ExceptionHandler(NoUserFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Map<String,String> nouserFoundException(NoUserFoundException exception){
-        Map<String,String> errorMap = new HashMap<>();
-        errorMap.put("errorMessage",exception.getMessage());
-        return errorMap;
-    }
-//------------------------REDUNDANT END--------------------------------------- 
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -79,6 +40,67 @@ public class GlobalControllerAdvice {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// THIS WILL CATCH ALL OTHER EXCEPTION IN YOUR APPLICATION
+
+//    @ExceptionHandler
+//    @ResponseStatus(HttpStatus.BAD_REQUEST)
+//    public Map<String,String> globalExceptionHandler(Exception exception){
+//
+//        Map<String,String> errorMap=new HashMap<>();
+//        errorMap.put("errorMessage",exception.getMessage());
+//        return errorMap;
+//    }
+
+
+
+
+//------------------------REDUNDANT START---------------------------------------
+
+    @ExceptionHandler(UserNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Map<String,String> exceptionHandler(UserNotFoundException exception){
+        Map<String,String> errorMap=new HashMap<>();
+        errorMap.put("errorMessage",exception.getMessage());
+
+        return errorMap;
+
+    }
+
+    @ExceptionHandler(DataNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Map<String,String> nouserFoundException(DataNotFoundException exception){
+        Map<String,String> errorMap = new HashMap<>();
+        errorMap.put("errorMessage",exception.getMessage());
+        return errorMap;
+    }
+    //------------------------REDUNDANT END---------------------------------------
 
 
 
