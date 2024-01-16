@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.goutam.backend.domain.StockMst;
+import com.goutam.backend.Entity.StockMst;
 import com.goutam.backend.repository.StockMstRepository;
 import com.goutam.backend.service.StockMstService;
 

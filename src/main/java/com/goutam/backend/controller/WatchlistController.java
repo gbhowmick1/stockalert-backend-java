@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.goutam.backend.domain.StockMst;
-import com.goutam.backend.domain.Watchlist;
+import com.goutam.backend.Entity.StockMst;
+import com.goutam.backend.Entity.Watchlist;
 import com.goutam.backend.service.WatchlistService;
 
 @RestController()

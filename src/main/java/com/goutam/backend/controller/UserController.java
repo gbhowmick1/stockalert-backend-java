@@ -2,7 +2,7 @@ package com.goutam.backend.controller;
 
 import com.goutam.backend.dto.UserRequest;
 import com.goutam.backend.exception.DataNotFoundException;
-import com.goutam.backend.domain.Users;
+import com.goutam.backend.Entity.Users;
 import com.goutam.backend.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/save-user")
+    @PostMapping("/user/save")
     ResponseEntity<Users> newUser(@RequestBody  @Valid UserRequest userRequest) {
 
         Users savedUser = userService.saveUser(userRequest);

@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.goutam.backend.domain.StockMst;
-import com.goutam.backend.domain.Watchlist;
+import com.goutam.backend.Entity.StockMst;
+import com.goutam.backend.Entity.Watchlist;
 
 public interface WatchlistRepository extends JpaRepository<Watchlist,Integer> {
 

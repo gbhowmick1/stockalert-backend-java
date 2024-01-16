@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.goutam.backend.domain.StockUser;
+import com.goutam.backend.Entity.StockUser;
 import com.goutam.backend.repository.StockUserRepository;
 import com.goutam.backend.service.StockUserService;
 

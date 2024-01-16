@@ -1,6 +1,6 @@
 package com.goutam.backend.controller;
 
-import com.goutam.backend.domain.StockUser;
+import com.goutam.backend.Entity.StockUser;
 import com.goutam.backend.service.StockUserService;
 
 import org.springframework.web.bind.annotation.*;

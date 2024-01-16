@@ -5,8 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.goutam.backend.domain.StockMst;
-import com.goutam.backend.domain.Watchlist;
+import com.goutam.backend.Entity.StockMst;
+import com.goutam.backend.Entity.Watchlist;
 import com.goutam.backend.repository.WatchlistRepository;
 import com.goutam.backend.service.WatchlistService;
 

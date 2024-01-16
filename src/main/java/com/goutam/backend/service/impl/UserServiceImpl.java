@@ -8,7 +8,7 @@ import com.goutam.backend.exception.UserNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.goutam.backend.domain.Users;
+import com.goutam.backend.Entity.Users;
 import com.goutam.backend.repository.UserRepository;
 import com.goutam.backend.service.UserService;
 

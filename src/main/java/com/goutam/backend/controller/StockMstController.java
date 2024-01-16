@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.goutam.backend.domain.StockMst;
+import com.goutam.backend.Entity.StockMst;
 import com.goutam.backend.service.StockMstService;
 
 @RestController

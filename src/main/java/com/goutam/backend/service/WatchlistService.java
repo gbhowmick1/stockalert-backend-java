@@ -1,7 +1,7 @@
 package com.goutam.backend.service;
 
-import com.goutam.backend.domain.StockMst;
-import com.goutam.backend.domain.Watchlist;
+import com.goutam.backend.Entity.StockMst;
+import com.goutam.backend.Entity.Watchlist;
 import java.util.List;
 
 public interface WatchlistService {

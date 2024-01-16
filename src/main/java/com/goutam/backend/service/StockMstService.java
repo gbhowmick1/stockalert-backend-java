@@ -2,7 +2,7 @@ package com.goutam.backend.service;
 
 import java.util.List;
 
-import com.goutam.backend.domain.StockMst;
+import com.goutam.backend.Entity.StockMst;
 
 public interface StockMstService {
 

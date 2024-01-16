@@ -1,4 +1,4 @@
-package com.goutam.backend.domain;
+package com.goutam.backend.Entity;
 
 import java.sql.Timestamp;
 
