@@ -1,6 +1,7 @@
 package com.goutam.backend.Entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,7 +13,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "build")
 @Entity
-@Table(name="users",schema="goutam")
+@Builder
+@Table(name="users",schema="public")
 public class Users {
 
     @Id
@@ -22,17 +24,19 @@ public class Users {
 
     @Column(name="user_name",nullable=false, length=50)
     private String username;
-    
-    @Column(name="name",nullable=false, length=50)
-    private String name;
 
     @Column(name="email",nullable=false, length=100, unique=true)
     private String email;
 
-    @Column(name="mobile",nullable=false, length=10)
+    @Column(name="name",nullable=false, length=50)
+    private String name;
+
+
+    @Column(name="mobile",nullable=false, length=20)
     private  String mobile;
     
     private Integer age;
+
     private String nationality;
 
 }

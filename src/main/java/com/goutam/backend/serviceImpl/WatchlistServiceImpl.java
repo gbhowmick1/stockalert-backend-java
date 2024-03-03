@@ -1,4 +1,4 @@
-package com.goutam.backend.service.impl;
+package com.goutam.backend.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;

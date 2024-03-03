@@ -17,7 +17,9 @@ public interface UserService {
 
 	Users getUserById(Long id);
 
-	Users updateUserById(Long id, Users newUser);
+	Users updateUserById(Long id, UserRequest newUser);
+
+	Boolean updateUserNameByEmail(String email, String name);
 
 	ResponseEntity<String> deleteUserById(Long id);
 	

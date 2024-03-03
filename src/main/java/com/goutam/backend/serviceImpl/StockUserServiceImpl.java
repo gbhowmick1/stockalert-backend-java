@@ -1,8 +1,9 @@
-package com.goutam.backend.service.impl;
+package com.goutam.backend.serviceImpl;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.goutam.backend.Entity.StockUser;
@@ -14,6 +15,7 @@ public class StockUserServiceImpl implements StockUserService {
 
 	private final StockUserRepository stockUserRepository;
 
+	@Autowired
 	public StockUserServiceImpl(StockUserRepository stockUserRepository) {
 		this.stockUserRepository = stockUserRepository;
 	}
