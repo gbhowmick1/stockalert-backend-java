@@ -39,6 +39,8 @@ public class Users {
 
     private String nationality;
 
+    private String password;
+
 }
 
 

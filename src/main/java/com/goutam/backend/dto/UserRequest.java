@@ -21,7 +21,7 @@ public class UserRequest {
     @Email(message = "Invalid E-mail Address")
     private String email;
 
-    @NotNull
+    @NotNull(message = "name can't be null")
     private String name;
 
     @Pattern(regexp="^\\d{10}$", message = "Invalid mobile number entered")
@@ -31,7 +31,13 @@ public class UserRequest {
     @Max(60)
     private Integer age;
 
-    @NotBlank
+    @NotNull(message = "nationality can't be null")
     private String nationality;
+
+    @NotNull(message = "pass can't be null")
+    private String password;
+
+    @NotNull(message = "role can't be null")
+    private String role;
 
 }

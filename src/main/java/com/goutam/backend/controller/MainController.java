@@ -11,6 +11,17 @@ public class MainController {
 		return "StockAlert API Status: Active";
 	}
 
+	@GetMapping("/other")
+	public String otherResponse(){
+		return "From other api";
+	}
+
+
+
+	@GetMapping("/useradmin")
+	public String useradminResponse(){
+		return "From useradmin api";
+	}
 
 
 }
