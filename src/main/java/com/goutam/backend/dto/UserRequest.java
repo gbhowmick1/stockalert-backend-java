@@ -5,6 +5,7 @@ package com.goutam.backend.dto;
 //        https://www.youtube.com/watch?v=gPnd-hzM_6A&list=LL&index=1&ab_channel=JavaTechie
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,16 +13,17 @@ import javax.validation.constraints.*;
 
 @Data
 @NoArgsConstructor
+@Builder
 @AllArgsConstructor(staticName = "build")
 public class UserRequest {
 
-    @NotNull(message = "User Name shouldn't be null")
+    @NotEmpty(message = "User Name shouldn't be Empty")
     private String username;
 
     @Email(message = "Invalid E-mail Address")
     private String email;
 
-    @NotNull(message = "name can't be null")
+    @NotEmpty(message = "name can't be Empty")
     private String name;
 
     @Pattern(regexp="^\\d{10}$", message = "Invalid mobile number entered")
@@ -31,13 +33,13 @@ public class UserRequest {
     @Max(60)
     private Integer age;
 
-    @NotNull(message = "nationality can't be null")
+    @NotEmpty(message = "nationality can't be Empty")
     private String nationality;
 
-    @NotNull(message = "pass can't be null")
+    @NotEmpty(message = "pass can't be Empty")
     private String password;
 
-    @NotNull(message = "role can't be null")
+    @NotEmpty(message = "role can't be Empty")
     private String role;
 
 }

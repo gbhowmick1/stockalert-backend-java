@@ -16,7 +16,8 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
-        http.securityContext(c -> c.requireExplicitSave(false))
+//        http.securityContext(c -> c.requireExplicitSave(false))
+        http.securityContext(context -> context.requireExplicitSave(false))
                 .authorizeHttpRequests(req-> req
                         .antMatchers("/user/register").permitAll()
                         .antMatchers("/other").hasRole("OTHER")

@@ -1,5 +1,6 @@
 package com.goutam.backend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,6 +40,8 @@ public class Users {
 
     private String nationality;
 
+    // @JsonIgnore will prohibit sending password field in API response
+    @JsonIgnore
     private String password;
 
 }

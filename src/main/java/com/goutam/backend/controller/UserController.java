@@ -48,6 +48,7 @@ public class UserController {
 
     @Autowired
     public UserController(@Qualifier("userServiceImpl") UserService userService) {
+
         this.userService = userService;
     }
 
