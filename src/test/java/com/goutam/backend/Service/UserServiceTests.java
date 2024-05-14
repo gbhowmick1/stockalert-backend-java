@@ -22,8 +22,7 @@ public class UserServiceTests {
     UserRepository userRepository;
 
     @InjectMocks
-    UserServiceImpl
-            userServiceImpl;
+    UserServiceImpl userServiceImpl;
 
 
     @Test
