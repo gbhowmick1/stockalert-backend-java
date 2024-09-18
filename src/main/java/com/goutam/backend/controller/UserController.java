@@ -143,7 +143,7 @@ public class UserController {
     @GetMapping("/user/name/{name}")
     public ResponseEntity<List<Users>> getUserByName(
                                            @PathVariable String name,
-                                           @RequestParam(value="pagenum", defaultValue = "0", required = false) Integer pageNum,
+                                           @RequestParam(value="pagenum", defaultValue = "1", required = false) Integer pageNum,
                                            @RequestParam(value="pagesize", defaultValue = "20", required = false) Integer pageSize
                                                ) {
         return ResponseEntity.ok(userService.getUserByName(name, pageNum-1,pageSize ));
